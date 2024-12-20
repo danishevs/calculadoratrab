@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Trabalhista</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+</head>
+<body>
+    <h1>Calculadora Trabalhista</h1>
+
+    <div class="input-group">
+        <label for="dataAdmissao">Data de Admissão:</label>
+        <input type="date" id="dataAdmissao" name="dataAdmissao">
+    </div>
+
+    <div class="input-group">
+        <label for="dataDemissao">Data de Demissão:</label>
+        <input type="date" id="dataDemissao" name="dataDemissao">
+    </div>
+
+    <div class="input-group">
+        <label for="salarioBase">Salário Base (R$):</label>
+        <input type="number" id="salarioBase" name="salarioBase">
+    </div>
+
+    <div class="input-group">
+        <label for="motivoDemissao">Motivo da Demissão:</label>
+        <select id="motivoDemissao" name="motivoDemissao">
+            <option value="semJustaCausa">Dispensa sem justa causa</option>
+            <option value="comJustaCausa">Dispensa com justa causa</option>
+            <option value="pedidoDemissao">Pedido de demissão</option>
+            <option value="acordo">Acordo entre as partes</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="horasExtras50">Horas Extras 50% (quantidade):</label>
+        <input type="number" id="horasExtras50" name="horasExtras50" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="horasExtras100">Horas Extras 100% (quantidade):</label>
+        <input type="number" id="horasExtras100" name="horasExtras100" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="adicionalNoturno">Adicional Noturno (horas):</label>
+        <input type="number" id="adicionalNoturno" name="adicionalNoturno" value="0">
+    </div>
+
+    <div class="input-group">
+        <label for="insalubridade">Adicional de Insalubridade (grau):</label>
+        <select id="insalubridade" name="insalubridade">
+            <option value="0">Não</option>
+            <option value="10">Mínimo (10%)</option>
+            <option value="20">Médio (20%)</option>
+            <option value="40">Máximo (40%)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="periculosidade">Adicional de Periculosidade:</label>
+        <select id="periculosidade" name="periculosidade">
+            <option value="nao">Não</option>
+            <option value="sim">Sim (30%)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="feriasVencidas">Férias Vencidas:</label>
+        <select id="feriasVencidas" name="feriasVencidas">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="pagouMulta467E477">Houve Pagamento das Multas 467 e 477?</label>
+        <select id="pagouMulta467E477" name="pagouMulta467E477">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+        </select>
+    </div>
+
+    <button id="calcularBtn">Calcular</button>
+
+    <h2>Resultados</h2>
+    <div id="resultados">
+        </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado com sucesso:', reg.scope))
+                    .catch(err => console.log('Erro ao registrar Service Worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>
