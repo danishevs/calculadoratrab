@@ -9,6 +9,11 @@
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
   "orientation": "any",
+  "scope": "/",
+  "dir": "ltr",
+  "lang": "pt-BR",
+  "prefer_related_applications": false,
+  "categories": ["utilities", "tools", "education"],
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
